@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/quotes/tabs/explore">
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title>quote-details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-card>
+      <img [src]="quote.imageUrl" />
+      <ion-card-header>
+        <ion-card-title>{{quote.text}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{quote.author}}
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button color="primary" class="ion-margin">SAVE</ion-button>
+  </ion-content>

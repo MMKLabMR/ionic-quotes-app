@@ -5,9 +5,29 @@ import { QuotesPage } from './quotes.page';
 
 const routes: Routes = [
   {
+    path: 'tabs',
+    component: QuotesPage,
+    children: [
+      {
+        path: 'explore',
+        loadChildren: () => import('./explore/explore.module').then( m => m.ExplorePageModule)
+      },
+      {
+        path: 'saved',
+        loadChildren: () => import('./saved/saved.module').then( m => m.SavedPageModule)
+      },
+      {
+        path: '',
+        redirectTo: '/quotes/tabs/explore',
+        pathMatch: 'full'
+      },
+    ]
+  },
+  {
     path: '',
-    component: QuotesPage
-  }
+    redirectTo: '/quotes/tabs/explore',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
